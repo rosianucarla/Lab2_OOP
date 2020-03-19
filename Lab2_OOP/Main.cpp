@@ -1,6 +1,7 @@
 #include <iostream>
 #include <assert.h>
 #include "Complex.h"
+#include "Rational.h"
 
 int main() {
     Complex v[] = { Complex(3,4), Complex(1,2),Complex(3,1),Complex(1,1) }; // Reihe der Objekte vom Typ-Complex.
@@ -43,7 +44,23 @@ int main() {
     v[1].show_exp();
     std::cout << "\n";
 
-  
+
+
+
+    Rational r[] = { Rational(10,3),Rational(11,5) };///reihe typ rational
+
+    Rational added = Rational(1, 1);
+    added = r[0].add(r[1]);
+    added.show();//test add
+    std::cout << "\n";
+    Rational multi = Rational(1, 1);///test mult
+    multi = r[0].mul(r[1]);
+    multi.show();
+
+    std::cout << "\n";
+    Rational quoti = Rational(1, 1);///test impartire
+    quoti = r[0].quot(r[1]);
+    quoti.show();
 
     return 0;
 }
