@@ -9,30 +9,27 @@ private:
     double real;
     double imag;
 public:
-    Complex(double real, double imag);
-    Complex add(Complex* c);
-    Complex* mul(Complex* c);
+    Complex(double real, double imag); //constructor
+  
+    double abs(); //valoare absoluta
 
-    Complex* quot(Complex* c);
-    double abs();
+    void setreal(double real); //seteaza partea reala
 
-    void setreal(double real);
+    double getreal(); //returneaza partea reala 
 
-    double getreal();
+    void setimag(double imag); //seteaza partea imaginara
 
-    void setimag(double imag);
+    double getimag(); //returneaza partea reala
 
-    double getimag();
+    void show_compl(); //afiseaza a+bi
 
-    void show_compl();
+    Complex compute_polar(); //forma polara: r*(cos a + i* sin a)
 
-    Complex compute_polar();
+    void show_exp(); //r*e^(ia)
 
-    void show_exp();
-    //adds two complex numbers
-    Complex add(Complex c);
+    Complex add(Complex c); //addition
 
-    Complex mul(Complex c);
+    Complex mul(Complex c);  //multiplikation
 
-    Complex quot(Complex c);
+    Complex quot(Complex c); //division
 };

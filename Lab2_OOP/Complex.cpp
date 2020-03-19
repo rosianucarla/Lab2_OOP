@@ -1,13 +1,20 @@
-#include "complex.h"
+#include "Complex.h"
 #include <iostream>
 #include <cmath>
 #include <string.h>
 
+//konstrukot
+Complex::Complex(double real, double imag) {
+    this->real = real;
+    this->imag = imag;
+}
 
+////afiseaza a+bi
 void Complex::show_compl() {
     std::cout << this->getreal() << " + " << this->getimag() << "i" << "\n";
 }
 
+//r*e^(ia)
 void Complex::show_exp() {
     Complex* expo;
     double abs = this->abs();
@@ -15,17 +22,14 @@ void Complex::show_exp() {
     std::cout << abs << "e^i" << teta;
 
 }
+//addition
 Complex Complex::add(Complex c) {
     c.imag = this->imag + c.imag;
     c.real = this->real + c.real;
     return c;
 }
 
-Complex::Complex(double real, double imag) {
-    this->real = real;
-    this->imag = imag;
-}
-
+//multiplikation
 Complex Complex::mul(Complex c) {
     double r = c.real * this->real - c.imag * this->imag;
     double i = this->real * c.imag + this->imag * c.real;
@@ -34,6 +38,7 @@ Complex Complex::mul(Complex c) {
     return c;
 }
 
+//division
 Complex Complex::quot(Complex c) {
     c.imag = -c.imag;
     auto* zahler = new Complex(this->mul(c).real, this->mul(c).imag);
@@ -43,27 +48,33 @@ Complex Complex::quot(Complex c) {
     return c;
 }
 
+//valoarea abs
 double Complex::abs() {
     //std::cout<<this->real<<" "<< this->imag<<"\n"
     return sqrt(pow(this->real, 2) + pow(this->imag, 2));
 }
 
+//getter
 double Complex::getimag() {
     return this->imag;
 }
 
+//setter
 void Complex::setimag(double imag) {
     this->imag = imag;
 }
 
+//getter
 double Complex::getreal() {
     return real;
 }
 
+//setter
 void Complex::setreal(double real) {
     this->real = real;
 }
 
+//forma polara
 Complex Complex::compute_polar() {
     double abs = this->abs();
     double teta = atan(this->getimag() / this->getreal());
